@@ -1,12 +1,16 @@
 package de.itasesor.client.local;
 
+import com.google.common.collect.Lists;
 import com.google.gwt.cell.client.AbstractEditableCell;
 import com.google.gwt.cell.client.Cell;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
 import com.google.gwt.view.client.AbstractDataProvider;
 import com.google.gwt.view.client.HasData;
+import com.google.gwt.view.client.ListDataProvider;
 import com.google.gwt.view.client.TreeViewModel;
+
+import java.util.List;
 
 /**
  * Created by
@@ -19,11 +23,12 @@ import com.google.gwt.view.client.TreeViewModel;
 public class AppNodeModel implements TreeViewModel {
     @Override
     public <T> NodeInfo<?> getNodeInfo(T value) {
-        AbstractDataProvider<AppNode> dataProvider = new AbstractDataProvider<AppNode>() {
-            @Override
-            protected void onRangeChanged(HasData<AppNode> display) {
-            }
-        };
+        AppNode firstChild = new AppNode();
+        firstChild.setName("1st Child");
+        AppNode secondChild = new AppNode();
+        secondChild.setName("2nd Child");
+        List<AppNode> values = Lists.newArrayList(firstChild, secondChild);
+        AbstractDataProvider<AppNode> dataProvider = new ListDataProvider<AppNode>(values, AppNode.KEY_PROVIDER);
         Cell<AppNode> cell = new AbstractEditableCell<AppNode, AppNode>() {
             @Override
             public boolean isEditing(Context context, Element parent, AppNode value) {

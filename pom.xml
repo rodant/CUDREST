@@ -172,7 +172,13 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- Runtime / Container dependencies -->
+      <dependency>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava-gwt</artifactId>
+          <version>13.0.1</version>
+      </dependency>
+
+      <!-- Runtime / Container dependencies -->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>

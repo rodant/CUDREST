@@ -5,3 +5,12 @@ body {
     font-size: small;
     margin: 8px;
 }
+
+.app-element {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.app-tree-container {
+    border: 1px solid #a9a9a9;
+}

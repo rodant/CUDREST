@@ -1,22 +1,16 @@
 package de.itasesor.client.local;
 
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.ui.*;
+import de.itasesor.client.shared.HelloMessage;
+import de.itasesor.client.shared.Response;
+import org.jboss.errai.ioc.client.api.EntryPoint;
+
 import javax.annotation.PostConstruct;
 import javax.enterprise.event.Event;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
-
-import org.jboss.errai.ioc.client.api.EntryPoint;
-
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.HorizontalPanel;
-import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.TextBox;
-
-import de.itasesor.client.shared.HelloMessage;
-import de.itasesor.client.shared.Response;
 
 /**
  * Main application entry point.
@@ -51,12 +45,13 @@ public class App {
         rootPanel.add(new AppView());
 
         HorizontalPanel horizontalPanel = new HorizontalPanel();
+        horizontalPanel.setStylePrimaryName("app-element");
         horizontalPanel.add(message);
         horizontalPanel.add(button);
         horizontalPanel.add(responseLabel);
 
         rootPanel.add(horizontalPanel);
-        
+
         System.out.println("UI Constructed!");
     }
 
@@ -64,9 +59,9 @@ public class App {
      * Fires a CDI HelloMessage with the current contents of the message textbox.
      */
     void fireMessage() {
-      String text = message.getText();
-      HelloMessage event = new HelloMessage(text);
-      messageEvent.fire(event);
+        String text = message.getText();
+        HelloMessage event = new HelloMessage(text);
+        messageEvent.fire(event);
     }
 
     public void response(@Observes Response event) {
@@ -80,18 +75,18 @@ public class App {
     Button getSendButton() {
         return button;
     }
-    
+
     /**
      * Returns the response label. Exposed for testing.
      */
     Label getResponseLabel() {
-      return responseLabel;
+        return responseLabel;
     }
-    
+
     /**
      * Returns the "message" text box. Exposed for testing.
      */
     TextBox getMessageBox() {
-      return message;
+        return message;
     }
 }

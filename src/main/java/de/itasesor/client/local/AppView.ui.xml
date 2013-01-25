@@ -2,6 +2,8 @@
              xmlns:g='urn:import:com.google.gwt.user.client.ui'
              xmlns:c='urn:import:com.google.gwt.user.cellview.client'>
     <g:HTMLPanel>
-        <c:CellTree ui:field="tree" animationEnabled="true"/>
+        <g:ScrollPanel width="600px" stylePrimaryName="app-tree-container">
+            <c:CellTree ui:field="tree" animationEnabled="true"/>
+        </g:ScrollPanel>
     </g:HTMLPanel>
 </ui:UiBinder>

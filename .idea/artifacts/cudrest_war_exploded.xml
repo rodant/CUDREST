@@ -31,6 +31,7 @@
           <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/errai/errai-ioc/2.2.0.CR2/errai-ioc-2.2.0.CR2.jar" output-file-name="errai-ioc-.jar" />
           <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/errai/errai-cdi-client/2.2.0.CR2/errai-cdi-client-2.2.0.CR2.jar" output-file-name="errai-cdi-client-.jar" />
           <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/errai/errai-weld-integration/2.2.0.CR2/errai-weld-integration-2.2.0.CR2.jar" output-file-name="errai-weld-integration-.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/com/google/guava/guava-gwt/13.0.1/guava-gwt-13.0.1.jar" output-file-name="guava-gwt-.jar" />
           <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/logging/jboss-logging/3.0.0.Beta4/jboss-logging-3.0.0.Beta4.jar" output-file-name="jboss-logging-.jar" />
         </element>
       </element>

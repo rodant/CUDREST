@@ -27,12 +27,11 @@ public class AppView extends Composite {
 
     public AppView() {
         TreeViewModel treeModel = new AppNodeModel();
-        AppNode rootNode = new AppNode();
-        rootNode.setName("Root");
-        tree = new CellTree(treeModel, rootNode);
+        CellTree.Resources res = GWT.create(CellTree.BasicResources.class);
+        tree = new CellTree(treeModel, null, res);
 
         HTMLPanel rootElement = ourUiBinder.createAndBindUi(this);
 
-        initWidget(tree);
+        initWidget(rootElement);
     }
 }
