@@ -734,7 +734,8 @@
             <artifactId>gwt-maven-plugin</artifactId>
             <version>${gwt.maven.version}</version>
             <configuration>
-              <skip>true</skip>
+                <skip>true</skip>
+                <debugSuspend>false</debugSuspend>
             </configuration>
           </plugin>
         </plugins>

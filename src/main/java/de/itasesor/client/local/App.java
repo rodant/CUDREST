@@ -47,12 +47,15 @@ public class App {
             }
         });
 
+        final RootPanel rootPanel = RootPanel.get();
+        rootPanel.add(new AppView());
+
         HorizontalPanel horizontalPanel = new HorizontalPanel();
         horizontalPanel.add(message);
         horizontalPanel.add(button);
         horizontalPanel.add(responseLabel);
 
-        RootPanel.get().add(horizontalPanel);
+        rootPanel.add(horizontalPanel);
         
         System.out.println("UI Constructed!");
     }
