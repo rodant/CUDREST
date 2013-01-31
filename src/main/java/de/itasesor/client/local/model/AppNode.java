@@ -3,6 +3,8 @@ package de.itasesor.client.local.model;
 
 import com.google.gwt.view.client.ProvidesKey;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * Created by User: antonio Date: 20.01.13 Time: 17:15
  *
@@ -15,13 +17,50 @@ public class AppNode {
             return item != null ? item.getName() : null;
         }
     };
-    private String name;
+
+    @NotNull
+    private final String name;
+
+    private final AppNode parentNode;
+
+    public AppNode(String name, AppNode parentNode) {
+        this.parentNode = parentNode;
+        this.name = name;
+    }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public AppNode getParentNode() {
+        return parentNode;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        AppNode appNode = (AppNode) o;
+
+        if (!name.equals(appNode.name)) return false;
+        if (parentNode != null ? !parentNode.equals(appNode.parentNode) : appNode.parentNode != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + (parentNode != null ? parentNode.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "AppNode{" +
+                "name='" + name + '\'' +
+                ", parentNode=" + parentNode +
+                '}';
     }
 }

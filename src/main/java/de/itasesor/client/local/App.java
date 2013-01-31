@@ -20,7 +20,8 @@ public class App {
 
     @Inject
     private Event<HelloMessage> messageEvent;
-
+    @Inject
+    private AppView appView;
     private final Label responseLabel = new Label();
     private final Button button = new Button("Send");
     private final TextBox message = new TextBox();
@@ -42,7 +43,7 @@ public class App {
         });
 
         final RootPanel rootPanel = RootPanel.get();
-        rootPanel.add(new AppView());
+        rootPanel.add(appView);
 
         HorizontalPanel horizontalPanel = new HorizontalPanel();
         horizontalPanel.setStylePrimaryName("app-element");

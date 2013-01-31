@@ -7,6 +7,7 @@ import com.google.gwt.user.cellview.client.CellTree;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.view.client.TreeViewModel;
+import de.itasesor.client.local.model.AppTreeModel;
 
 /**
  * Created with IntelliJ IDEA.
@@ -26,7 +27,7 @@ public class AppView extends Composite {
     CellTree tree;
 
     public AppView() {
-        TreeViewModel treeModel = new AppNodeModel();
+        TreeViewModel treeModel = new AppTreeModel();
         CellTree.Resources res = GWT.create(CellTree.BasicResources.class);
         tree = new CellTree(treeModel, null, res);
 

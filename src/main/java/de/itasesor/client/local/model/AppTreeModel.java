@@ -8,7 +8,6 @@ import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
 import com.google.gwt.view.client.AbstractDataProvider;
 import com.google.gwt.view.client.ListDataProvider;
 import com.google.gwt.view.client.TreeViewModel;
-import de.itasesor.client.local.model.AppNode;
 
 import java.util.List;
 
@@ -23,10 +22,8 @@ import java.util.List;
 public class AppTreeModel implements TreeViewModel {
     @Override
     public <T> NodeInfo<?> getNodeInfo(T value) {
-        AppNode firstChild = new AppNode();
-        firstChild.setName("1st Child");
-        AppNode secondChild = new AppNode();
-        secondChild.setName("2nd Child");
+        AppNode firstChild = new AppNode("1st Child", null);
+        AppNode secondChild = new AppNode("2nd Child", null);
         List<AppNode> values = Lists.newArrayList(firstChild, secondChild);
         AbstractDataProvider<AppNode> dataProvider = new ListDataProvider<AppNode>(values, AppNode.KEY_PROVIDER);
         Cell<AppNode> cell = new AbstractEditableCell<AppNode, AppNode>() {
