@@ -1,5 +1,5 @@
 
-package de.itasesor.client.local;
+package de.itasesor.client.local.model;
 
 import com.google.gwt.view.client.ProvidesKey;
 

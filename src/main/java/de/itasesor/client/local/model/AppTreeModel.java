@@ -1,4 +1,4 @@
-package de.itasesor.client.local;
+package de.itasesor.client.local.model;
 
 import com.google.common.collect.Lists;
 import com.google.gwt.cell.client.AbstractEditableCell;
@@ -6,9 +6,9 @@ import com.google.gwt.cell.client.Cell;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
 import com.google.gwt.view.client.AbstractDataProvider;
-import com.google.gwt.view.client.HasData;
 import com.google.gwt.view.client.ListDataProvider;
 import com.google.gwt.view.client.TreeViewModel;
+import de.itasesor.client.local.model.AppNode;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import java.util.List;
  *
  * @author Antonio Rodriguez
  */
-public class AppNodeModel implements TreeViewModel {
+public class AppTreeModel implements TreeViewModel {
     @Override
     public <T> NodeInfo<?> getNodeInfo(T value) {
         AppNode firstChild = new AppNode();
