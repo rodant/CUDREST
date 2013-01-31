@@ -1,16 +1,18 @@
 
 package de.itasesor.client.local.model;
 
-import com.google.gwt.view.client.ProvidesKey;
+import java.util.List;
 
 import javax.validation.constraints.NotNull;
+
+import com.google.gwt.view.client.ProvidesKey;
 
 /**
  * Created by User: antonio Date: 20.01.13 Time: 17:15
  *
  * @author Antonio Rodriguez
  */
-public class AppNode {
+public class AppNode implements Comparable<AppNode> {
     public static final ProvidesKey<AppNode> KEY_PROVIDER = new ProvidesKey<AppNode>() {
         @Override
         public Object getKey(AppNode item) {
@@ -21,46 +23,49 @@ public class AppNode {
     @NotNull
     private final String name;
 
-    private final AppNode parentNode;
+    private final List<AppNode> parents;
 
-    public AppNode(String name, AppNode parentNode) {
-        this.parentNode = parentNode;
+    public AppNode(String name, List<AppNode> parents) {
         this.name = name;
+        this.parents = parents;
     }
 
     public String getName() {
         return name;
     }
 
-    public AppNode getParentNode() {
-        return parentNode;
+    public List<AppNode> getParents() {
+        return parents;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof AppNode))
+            return false;
 
         AppNode appNode = (AppNode) o;
 
-        if (!name.equals(appNode.name)) return false;
-        if (parentNode != null ? !parentNode.equals(appNode.parentNode) : appNode.parentNode != null) return false;
-
-        return true;
+        return name.equals(appNode.name);
     }
 
     @Override
     public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + (parentNode != null ? parentNode.hashCode() : 0);
-        return result;
+        return name.hashCode();
     }
 
     @Override
     public String toString() {
-        return "AppNode{" +
-                "name='" + name + '\'' +
-                ", parentNode=" + parentNode +
-                '}';
+        final StringBuilder sb = new StringBuilder();
+        sb.append("AppNode");
+        sb.append("{name='").append(name).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
+
+    @Override
+    public int compareTo(AppNode appNode) {
+        return this.name.compareTo(appNode.getName());
     }
 }
