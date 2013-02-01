@@ -20,6 +20,8 @@ public class AppNode implements Comparable<AppNode> {
         }
     };
 
+    public static final AppNode ROOT_NODE = new AppNode("ROOT", null);
+
     @NotNull
     private final String name;
 

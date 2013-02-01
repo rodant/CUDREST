@@ -6,8 +6,9 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.cellview.client.CellTree;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.view.client.TreeViewModel;
-import de.itasesor.client.local.model.AppTreeModel;
+import de.itasesor.client.local.model.AppNode;
+
+import javax.inject.Inject;
 
 /**
  * Created with IntelliJ IDEA.
@@ -26,10 +27,10 @@ public class AppView extends Composite {
     @UiField(provided = true)
     CellTree tree;
 
-    public AppView() {
-        TreeViewModel treeModel = new AppTreeModel();
+    @Inject
+    public AppView(AppTreeModel treeModel) {
         CellTree.Resources res = GWT.create(CellTree.BasicResources.class);
-        tree = new CellTree(treeModel, null, res);
+        tree = new CellTree(treeModel, AppNode.ROOT_NODE, res);
 
         HTMLPanel rootElement = ourUiBinder.createAndBindUi(this);
 

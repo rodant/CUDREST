@@ -21,6 +21,7 @@ import java.util.Map;
  * Class to encapsulate the data access services.
  */
 public class ServiceFacadeImpl {
+    private final KeyValueDatabase database;
     private static final Map<String, AppNode> nodeNameToNode = new HashMap<String, AppNode>();
 
     static {
@@ -31,6 +32,10 @@ public class ServiceFacadeImpl {
         nodeNameToNode.put("Node 2", node2);
         nodeNameToNode.put("Node 3", node3);
         nodeNameToNode.put("Node 11", new AppNode("Node 11", Lists.newArrayList(node1, node3)));
+    }
+
+    public ServiceFacadeImpl(KeyValueDatabase database) {
+        this.database = database;
     }
 
     public List<? extends AppNode> getChildNodes(AppNode node) {

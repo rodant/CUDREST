@@ -30,4 +30,8 @@ public class KeyValueDatabase {
         nodeNameToNode.put("Node 3", node3);
         nodeNameToNode.put("Node 11", new AppNode("Node 11", Lists.newArrayList(node1, node3)));
     }
+
+    public AppNode getAppNode(String name) {
+        return nodeNameToNode.get(name);
+    }
 }
