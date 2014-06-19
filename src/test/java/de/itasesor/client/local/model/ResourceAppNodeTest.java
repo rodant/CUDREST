@@ -1,8 +1,6 @@
 /**
- * (c) 2012 Acrolinx GmbH. All rights reserved.
  *
  * Created 31.01.13
- *
  *
  * @author rodriguez
  */
